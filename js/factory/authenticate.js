@@ -53,7 +53,7 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
             };
             $http({
                 method: 'POST',
-                url: 'test.php',
+                url: 'referrals.php',
                 data: params,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -74,7 +74,7 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
             };
             $http({
                 method: 'POST',
-                url: 'test.php',
+                url: 'referrals.php',
                 data: params,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -97,7 +97,7 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
             };
             $http({
                 method: 'POST',
-                url: 'test.php',
+                url: 'referrals.php',
                 data: params,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -120,7 +120,7 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
             };
             $http({
                 method: 'POST',
-                url: 'test.php',
+                url: 'referrals.php',
                 data: params,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -144,7 +144,7 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
 
             $http({
                 method: 'POST',
-                url: 'test.php',
+                url: 'referrals.php',
                 data: params,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -165,7 +165,7 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
             };
             $http({
                 method: 'POST',
-                url: 'test.php',
+                url: 'referrals.php',
                 data: params,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -245,7 +245,7 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
             };
             $http({
                 method: 'POST',
-                url: 'test.php',
+                url: 'referrals.php',
                 data: params,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -265,7 +265,7 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
             };
             $http({
                 method: 'POST',
-                url: 'test.php',
+                url: 'referrals.php',
                 data: params,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -285,7 +285,7 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
             };
             $http({
                 method: 'POST',
-                url: 'test.php',
+                url: 'referrals.php',
                 data: params,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
