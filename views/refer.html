@@ -1,0 +1,136 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <form name="referralForm" class="form-signin" ng-submit="sendreferral()" novalidate>
+      <h4 class="alert alert-info">{{ prompts.pageTitle }}</h4>
+      <p class="text-danger" ng-show="invalidmessage">{{invalidmessage}}</p>
+
+        <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
+            <label for="recipient" ng-class="applyThisClass(member)">{{prompts.recipient}}</label>
+            <br>
+              <select data-ng-model="referral.recipient"
+                      ng-required="true"
+                      data-ng-options="(item.name_first + ' ' + item.name_last) for item in recipients | orderBy:'name_last'">
+                <option value="">{{ prompts.selectRecipient }}</option>
+              </select>
+              <p class="text-danger" 
+                 ng-show="referralForm.recipient.$invalid && referralForm.recipient.$touched">recipient required</p>
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
+            <label for="temperature" ng-class="applyThisClass(member)">{{prompts.temperature}}</label>
+            <br>
+            <select data-ng-model="referral.temperature"
+                    ng-required="true"
+                    data-ng-options="(item.description) for item in temperature | orderBy:'id'">
+              <option value="">{{ prompts.selectTemperature }}</option>
+            </select>
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6 required">
+            <label for="description" ng-class="applyThisClass(member)">{{prompts.description}}</label>
+              <textarea id="description" 
+                        ng-required="true"
+                        ng-model="referral.description" 
+                        ng-keyup="autoExpand($event)" 
+                        rows="3" 
+                        placeholder="{{prompts.placeholderDesription}}">
+              </textarea>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
+            <label for="contactNameFirst" ng-class="applyThisClass(member)">{{prompts.contactNameFirst}}</label>
+            <input class="form-control"
+                   ng-required="true"
+                   type="text" 
+                   name="contactNameFirst" 
+                   ng-model="referral.contactNameFirst">
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
+            <label for="contactNameLast" ng-class="applyThisClass(member)">{{prompts.contactNameLast}}</label>
+            <input class="form-control"
+                   ng-required="true"
+                   type="text" 
+                   name="contactNameLast" 
+                   ng-model="referral.contactNameLast">
+          </div>
+
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="occupation" ng-class="applyThisClass(member)">{{prompts.contactOccupation}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="occupation"
+                   placeholder="{{prompts.placeholderOccupation}}"
+                   ng-model="referral.occupation">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6 required">
+            <label for="phone" ng-class="applyThisClass(member)">{{prompts.phone}}</label>
+            <input class="form-control" 
+                   ng-required="true"
+                   type="text" 
+                   name="phone"
+                   ng-model="referral.phone">
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="email" ng-class="applyThisClass(member)">{{prompts.email}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="email"
+                   ng-model="referral.email">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="location" ng-class="applyThisClass(member)">{{prompts.location}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="location"
+                   placeholder="{{prompts.placeholderLocation}}"                   
+                   ng-model="referral.location">
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
+            <label for="type" ng-class="applyThisClass(member)">{{prompts.type}}</label>
+            <br>
+            <select data-ng-model="referral.type"
+                    ng-required="true"
+                    data-ng-options="(item.description) for item in referralType | orderBy:'id'">
+              <option value="">{{ prompts.selectType }}</option>
+            </select>
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3">
+            <label for="type" ng-class="applyThisClass(member)">{{prompts.delivery}}</label>
+            <br>
+            <input type="radio" 
+                   ng-model="referral.delivery" 
+                   value="callThem" 
+                   checked="checked">&nbsp;&nbsp;{{prompts.callThem }}
+                   <br>
+            <input type="radio" 
+                   ng-model="referral.delivery" 
+                   value="callMe">&nbsp;&nbsp;{{prompts.callMe}}
+          </div>
+
+      <button class="btn btn-lg btn-success btn-block" 
+              type="submit" 
+              ng-disabled="referralForm.$invalid">{{prompts.btnSendReferral}}
+      </button>
+      <button class="btn btn-lg btn-primary btn-block" 
+              type="button" onclick="window.history.go(-1);">{{prompts.btnCancel}}
+      </button>
+
+
+    </form>
+  </div>
+</div>

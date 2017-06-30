@@ -1,0 +1,173 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <form name="myupdateform" class="form-signin" ng-submit="updateMemberInfo()" novalidate>
+        <h4 class="alert alert-info">{{prompts.pageTitle}}</h4>
+              
+        <p class="text-danger" ng-show="invalidmessage">{{invalidmessage}}</p>
+
+        <div class="clearfix"></div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+          <label for="onlineID" ng-class="applyThisClass(member)">{{prompts.onlineID}}</label>
+          <input class="form-control" 
+                 type="text" 
+                 name="onlineid" 
+                 readonly
+                 ng-model="member.onlineid" 
+                 ng-required="true">
+          <p class="text-danger" 
+             ng-show="myupdateform.onlineid.$invalid && 
+                     myupdateform.onlineid.$touched">{{prompts.errOnlineID}}</p>
+        </div>
+
+        <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
+            <label for="inputPassword" ng-class="applyThisClass(member)">{{prompts.password}}</label>
+            <input class="form-control"
+                   type="password"
+                   name="password" 
+                   placeholder="{{prompts.password}}"
+                   ng-model="member.password" 
+                   ng-required="true" 
+                   ng-minlength='5'>
+            <p class="text-danger"
+                  ng-show="myupdateform.password.$touched && 
+                           myupdateform.password.$error.required">{{prompts.errPasswordRequired}}</p> 
+            <p class="text-danger"
+               ng-show="myupdateform.password.$touched &&
+                        myupdateform.password.$invalid &&
+                        !myupdateform.password.$error.required">{{prompts.errPasswordLength}}</p>
+        </div>
+
+        <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
+            <label for="inputConfirmPassword" ng-class="applyThisClass(member)">{{prompts.passwordConfirm}}</label>
+            <input class="form-control"
+                   type="password"
+                   name="confirmpassword" 
+                   placeholder="{{prompts.password}}"
+                   ng-model="member.confirmpassword" 
+                   ng-required="true" 
+                   password-match="member.password"
+                   ng-minlength='5'>
+            <p class="text-danger"
+                ng-show="myupdateform.confirmpassword.$touched && 
+                         myupdateform.confirmpassword.$error.passwordNotMatch">{{prompts.errPasswordDifferent}}</p>                        
+
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6 required">
+          <label for="inputNameFirst" ng-class="applyThisClass(member)">{{prompts.nameFirst}}</label>
+          <input class="form-control" 
+                 type="text" 
+                 name="nameFirst" 
+                 placeholder="{{prompts.nameFirst}}"
+                 ng-model="member.name_first" 
+                 ng-required="true">
+          <p class="text-danger"
+             ng-show="myupdateform.nameFirst.$invalid && 
+                      myupdateform.nameFirst.$touched">{{prompts.errNameFirst}}</p>
+        </div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6 required">
+          <label for="inputNameLast" ng-class="applyThisClass(member)">{{prompts.nameLast}}</label>
+          <input class="form-control" 
+                 type="text" 
+                 name="nameLast" 
+                 placeholder="{{prompts.nameLast}}"
+                 ng-model="member.name_last" 
+                 ng-required="true">
+          <p class="text-danger"
+             ng-show="myupdateform.nameLast.$invalid && 
+                      myupdateform.nameLast.$touched">{{prompts.errNameLast}}</p>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6 required">
+          <label for="inputnameBusiness" ng-class="applyThisClass(member)">{{prompts.nameBusiness}}</label>
+          <input class="form-control" 
+                 type="text" 
+                 name="nameBusiness" 
+                 placeholder="{{prompts.nameBusiness}}"
+                 ng-model="member.name_business" 
+                 ng-required="true">
+          <p class="text-danger"
+             ng-show="myupdateform.nameBusiness.$invalid && 
+                      myupdateform.nameBusiness.$touched">{{prompts.errNameBusiness}}</p>
+        </div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+          <label for="inputOccupation" ng-class="applyThisClass(member)">{{prompts.occupation}}</label>
+          <input class="form-control" 
+                 type="text" 
+                 name="occupation" 
+                 placeholder="{{prompts.occupation}}"
+                 ng-model="member.occupation" 
+                 ng-required="false">
+          <p class="text-danger"
+             ng-show="myupdateform.occupation.$invalid && 
+                      myupdateform.occupation.$touched">{{prompts.errOccupation}}</p>
+        </div> 
+
+        <div class="clearfix"></div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6 required">
+          <label for="inputPhone" ng-class="applyThisClass(member)">prompts.phonePrimary</label>
+          <input class="form-control" 
+                 type="text" 
+                 name="phone" 
+                 placeholder="{{prompts.phonePrimary}}"
+                 ng-model="member.phone_main" 
+                 ng-required="true">
+          <p class="text-danger"
+             ng-show="myupdateform.phone.$invalid && 
+                      myupdateform.phone.$touched">{{prompts.errPhonePrimary}}</p>
+        </div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+          <label for="inputPhoneAlternate" ng-class="applyThisClass(member)">{{prompts.phoneAlternate}}</label>
+          <input class="form-control" 
+                 type="text" 
+                 name="phoneAlternate" 
+                 placeholder="{{prompts.phoneAlternate}}"
+                 ng-model="member.phone_secondary" 
+                 ng-required="false">
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6 required">
+          <label for="inputPassword" ng-class="applyThisClass(member)">{{prompts.email}}</label>
+          <input class="form-control" 
+                 type="email" 
+                 name="email" 
+                 placeholder="{{prompts.email}}" 
+                 ng-model="member.email" 
+                 ng-required="true">
+          <p class="text-danger"
+             ng-show="myupdateform.email.$invalid && 
+                      myupdateform.email.$touched">{{prompts.errEmail}}</p>
+        </div>
+
+        <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+          <label for="inputComment" ng-class="applyThisClass(member)">{{prompts.comment}}</label>
+          <input class="form-control" 
+                 type="text" 
+                 name="comment" 
+                 placeholder="{{prompts.commentOptional}}"
+                 ng-model="member.comments" 
+                 ng-required="false">
+        </div>        
+
+        <button class="btn btn-lg btn-success btn-block" 
+                type="submit" 
+                ng-disabled="myupdateform.$invalid">{{prompts.btnSubmit}}
+        </button>
+        <button class="btn btn-lg btn-primary btn-block" 
+                type="button" onclick="window.history.go(-1);">{{prompts.btnCancel}}
+        </button>
+
+      </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h4 class="alert alert-info">
+      <ng-pluralize count="notificationCount"
+        when="{'0':     '{{prompts.plurals[0].tag}} {{prompts.plurals[1].tag}}',
+               '1':     '{{prompts.plurals[0].tag}} {{prompts.plurals[2].tag}}',
+               'other': '{{prompts.plurals[0].tag}} {} {{prompts.plurals[3].tag}}'
+              }">
+      </ng-pluralize>
+    </h4>
+    <br>
+
+    <div>
+      <div class="grid" ui-grid="gridOptions" ></div>
+    </div>
+    <br><br>
+    <button class="btn btn-lg btn-primary btn-block" 
+            type="button" onclick="window.history.go(-1);">{{prompts.btnCancel}}
+    </button>
+  </div>
+</div>
