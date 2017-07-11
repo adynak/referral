@@ -198,10 +198,12 @@ myApp.factory("Data", ['$http', '$q', '$rootScope',
             return qObject.promise;
         }
 
-        var getReferralsPassed = function(){
+        var getReferralsPassed = function(dates){
             var qObject = $q.defer();
             var params = {
-                task: 'getReferralsPassed'
+                task: 'getReferralsPassed',
+                dateStart: dates.dateStart,
+                dateStop: dates.dateStop
             };
             $http({
                 method: 'POST',

@@ -22,6 +22,7 @@ myApp.controller('ReportClosedController', ['$scope', '$http', '$location', 'Dat
         Data.getClosedBusiness().then(function(results) {
             $scope.resultsCount = results.length;
             $scope.data = results;
+            console.log('getClosedBusiness');
         });
 
         $scope.gridOptions = {

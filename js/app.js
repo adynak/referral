@@ -1,4 +1,5 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'toaster', 'ngTouch', 'ui.grid']);
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'toaster', 'ngTouch', 
+                                     'ui.grid', 'ngMessages', 'daterangepicker']);
 
 myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     

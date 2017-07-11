@@ -1,15 +1,3 @@
-var txt = {
-    welcome: "Welcome",
-    goodbye: "Goodbye",
-    error: "Something bad happend. Sowwy!",
-    
-    infoTextRegister: 'Register',
-    infoTextReferral: 'Create a Referral',
-
-    newReferral: 'Your referral nas been sent.',
-    updateReferral: 'Saved updates to referral.'
-};
-
 var txtLogin = {
     // labels for login page
     onlineID: 'Online ID',
@@ -69,7 +57,7 @@ var txtRefer = {
 var txtReferrals = {
     gridColumnReferralFrom: 'Referral From',
     gridColumnDescription: 'Description',
-    gridColumnDateSent: 'Date Sent',
+    gridColumnDateSent: 'Date Sent To You',
     btnCancel: 'Cancel',
     plurals: [
         {tag: 'You have '},
@@ -137,32 +125,43 @@ var txtProfile = {
 }
 
 var txtReports = {
-        pluralsMembers: [
-           {tag: 'No Active Members.'},
-            {tag: 'Active Member.'},
-            {tag: 'Active Members.'}
-        ],
-        pluralsClosed: [
-            {tag: 'No Closed Referrals.'},
-            {tag: 'Closed Referral.'},
-            {tag: 'Closed Referrals.'}
-        ],
-        pluralsPassed: [
-            {tag: 'No Passed Referrals.'},
-            {tag: 'Passed Referral.'},
-            {tag: 'Passed Referrals.'}
-        ],
-        btnCancel: 'Cancel'  ,
-        gridColumnMember: 'Member Name'  ,
-        gridColumnCompany: 'Company Name',
-        gridColumnEmail: 'Email Address',
-        gridColumnDescription: 'Description',
-        gridColumnJoined: 'Member Since',
-        gridColumnOpened: 'Referral Date',
-        gridColumnFrom: 'From',
-        gridColumnTo: 'To',
-        gridColumnDescription: 'Description',
-        gridColumnClosed: 'Date Closed',
-        gridColumnValue: 'Value',
-        gridColumnTemperature: 'Temperature'
+    pluralsMembers: [
+       {tag: 'No Active Members.'},
+        {tag: 'Active Member.'},
+        {tag: 'Active Members.'}
+    ],
+    pluralsClosed: [
+        {tag: 'No Closed Referrals.'},
+        {tag: 'Closed Referral.'},
+        {tag: 'Closed Referrals.'}
+    ],
+    pluralsPassed: [
+        {tag: 'No Passed Referrals.'},
+        {tag: 'Passed Referral.'},
+        {tag: 'Passed Referrals.'}
+    ],
+    btnCancel: 'Cancel'  ,
+    gridColumnMember: 'Member Name'  ,
+    gridColumnCompany: 'Company Name',
+    gridColumnEmail: 'Email Address',
+    gridColumnDescription: 'Description',
+    gridColumnJoined: 'Member Since',
+    gridColumnOpened: 'Referral Date',
+    gridColumnFrom: 'From',
+    gridColumnTo: 'To',
+    gridColumnDescription: 'Description',
+    gridColumnClosed: 'Date Closed',
+    gridColumnValue: 'Value',
+    gridColumnTemperature: 'Temperature'
+};
+
+var txtDatePicker = {
+    last7Days:  'Last 7 Days',
+    last30Days: 'Last 30 Days',
+    customRange: 'Custom Range',
+    from: 'From',
+    to: 'To',
+    apply: 'Apply',
+    format: 'MM-DD-YYYY',
+    cancel: 'Cancel'
 };

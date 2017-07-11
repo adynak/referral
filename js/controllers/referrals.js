@@ -29,7 +29,8 @@ myApp.controller('ReferralsController', ['$scope', '$http', '$location', 'Data',
             data: 'data',
             columnDefs: [{
                     name: 'referralfrom',
-                    displayName: $scope.prompts.gridColumnReferralFrom
+                    displayName: $scope.prompts.gridColumnReferralFrom,
+                    width: '20%' 
                 },
                 {
                     name: 'description',
@@ -37,7 +38,10 @@ myApp.controller('ReferralsController', ['$scope', '$http', '$location', 'Data',
                 },
                 {
                     name: 'DateSent',
-                    displayName: $scope.prompts.gridColumnDateSent
+                    displayName: $scope.prompts.gridColumnDateSent,
+                    cellClass: 'grid-align-right',
+                    headerCellClass: 'grid-header-align-right',
+                    width: '20%' 
                 }
             ]
         };

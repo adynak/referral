@@ -1,16 +1,16 @@
 <?php
 $fp = fopen('test.txt','a+');
-
 $debug = false ;
+
 session_start();
 
-$conn=@pg_connect("host=127.0.0.1 user=postgres dbname=postgres password=");
+$conn=@pg_connect("host=127.0.0.1 user=postgres dbname=postgres password=xxxxxx");
 
 $data = json_decode(file_get_contents("php://input"));
 
 
 if ($data->task == 'validate') {
-  $debug = true;
+  $debug = false;
   $myArray    = array();
 
   $sql  = "select row_to_json(t) ";
@@ -212,7 +212,7 @@ else if ($data->task == 'logout') {
 }
 
 else if ($data->task == 'insertNewReferral') {
-  $debug = true ;
+  $debug = false ;
 
   $sql  = 'insert into nwc.referrals (' ;
   $sql .= "originator, ";

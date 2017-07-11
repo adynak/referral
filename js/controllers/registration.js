@@ -5,7 +5,8 @@ myApp.controller('RegistrationController', ['$scope', '$http', '$location', 'Dat
         $scope.promptsReg = txtProfile;
 
         $scope.login = function() {
-            Data.validateCredentials($scope.member).then(function(status) {
+            member = $scope.member;
+            Data.validateCredentials(member).then(function(status) {
                 if (status.validated == 'success') {
                     Data.setCurrentMember(status.member);
                     Data.setNoteCount(status.notifications);

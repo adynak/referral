@@ -1,7 +1,58 @@
-myApp.controller('ReportPassedController', ['$scope', '$http', '$location', 'Data', '$rootScope', '$routeParams', 'toaster',
+myApp.controller('ReportPassedController', ['$scope', '$http', '$location', 'Data', 
+                                            '$rootScope', '$routeParams', 'toaster',
     function($scope, $http, $location, Data, $rootScope, $routeParams, toaster) {
 
         $scope.prompts = txtReports;
+
+        var datePrompts = txtDatePicker;
+
+        var queryResults ;
+
+        $scope.dateFilter = {
+            startDate: moment().subtract(364, "days"),
+            endDate: moment()
+        };
+  
+        $scope.dateConfig = {
+            locale: {
+                applyClass: 'btn-green',
+                applyLabel: datePrompts.apply,
+                fromLabel: datePrompts.from,
+                format: datePrompts.format,
+                toLabel: datePrompts.to,
+                cancelLabel: datePrompts.cancel,
+                customRangeLabel: datePrompts.customRange
+            },
+            ranges: {
+                'Last 7 Days':  "[moment().subtract(6,  'days'), moment()]",
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'Last 60 Days': [moment().subtract(59, 'days'), moment()],
+                'Last 90 Days': [moment().subtract(89, 'days'), moment()],
+                'This Year':    [moment().subtract(364, 'days'), moment()],
+                'This Month':   [moment().startOf('month'), moment().endOf('month')]
+
+            }
+        };
+
+        //Watch for date changes
+        $scope.$watch('dateFilter', function(newDate) {
+            var params = {};
+            params.dateStart = (newDate.startDate._d.getMonth() + 1) + "/" + newDate.startDate._d.getDate() + "/" +  newDate.startDate._d.getFullYear();
+            params.dateStop  = (newDate.endDate._d.getMonth() + 1) + "/" + newDate.endDate._d.getDate() + "/" +  newDate.endDate._d.getFullYear();
+
+            var referralDate;
+            var startDate = new Date(params.dateStart);
+            var stopDate  = new Date(params.dateStop);
+
+            var requiredData = _.filter(queryResults, function(data){
+                referralDate = new Date(data.referraldate);
+                return (referralDate >= startDate && referralDate <= stopDate);
+            }); 
+
+            $scope.data = requiredData;
+            $scope.resultsCount = requiredData.length;
+
+        }, false);
 
         var memberInfo = {};
         memberInfo.id = Data.getCurrentMember().id;
@@ -17,10 +68,14 @@ myApp.controller('ReportPassedController', ['$scope', '$http', '$location', 'Dat
             // alert(JSON.stringify(row.entity));
         };
 
+        params = {};
+        params.dateStart = (moment().subtract(364, "days")._d.getMonth() + 1) + "/" + moment().subtract(364, "days")._d.getDate() + "/" +  moment().subtract(364, "days")._d.getFullYear();
+        params.dateStop  = (moment()._d.getMonth() + 1) + "/" + moment()._d.getDate() + "/" +  moment()._d.getFullYear();
 
-        Data.getReferralsPassed().then(function(results) {
+        Data.getReferralsPassed(params).then(function(results) {
             $scope.resultsCount = results.length;
             $scope.data = results;
+            queryResults = results ;
         });
 
         $scope.gridOptions = {
