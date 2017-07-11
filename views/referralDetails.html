@@ -1,0 +1,144 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <form name="updateRefer" class="form-signin" ng-submit="updateReferral()" novalidate>
+
+        <h4 class="alert alert-info">{{prompts.pageTitle}} {{referral.referralfrom}}</h4>
+
+          <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="daysAgo" ng-class="applyThisClass(member)">{{prompts.dateOfReferral}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="daysAgo"
+                   readonly
+                   ng-model="daysAgo">
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="description" ng-class="applyThisClass(member)">{{prompts.description}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="description"
+                   readonly
+                   ng-model="referral.description">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="referralto" ng-class="applyThisClass(member)">{{prompts.contactName}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="referralto" 
+                   readonly
+                   ng-model="referral.referralto">
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="occupation" ng-class="applyThisClass(member)">{{prompts.contactOccupation}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="occupation"
+                   readonly
+                   ng-model="referral.occupation">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3">
+            <label for="phone" ng-class="applyThisClass(member)">{{prompts.contactPhoneNumber}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="phone"
+                   readonly
+                   ng-model="referral.phone">
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3">
+            <label for="delivery" ng-class="applyThisClass(member)">{{prompts.delivery}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="delivery"
+                   readonly
+                   ng-model="referral.delivery">
+          </div>
+
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="email" ng-class="applyThisClass(member)">{{prompts.contactEmailAddress}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="email"
+                   readonly
+                   ng-model="referral.email">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="location" ng-class="applyThisClass(member)">{{prompts.location}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="location"
+                   readonly
+                   ng-model="referral.location">
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="type" ng-class="applyThisClass(member)">{{prompte.type}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="type"
+                   readonly
+                   ng-model="referral.type">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="temperature" ng-class="applyThisClass(member)">{{prompts.temperature}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="temperature"
+                   readonly
+                   ng-model="referral.temperature">
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="dollarestimate" ng-class="applyThisClass(member)">{{prompts.yourProfit}}</label>
+            <input class="form-control" 
+                   type="text" 
+                   name="dollarestimate"
+                   ng-model="referral.dollarestimate">
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" 
+                           ng-model="referral.markread"
+                           ng-true-value="'read'" ng-false-value="'new'">{{prompts.markRead}}
+                </label>
+            </div>
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+            <label for="closerefferaldate" ng-class="applyThisClass(member)">{{prompts.closeThisReferral}}</label>
+            <input class="form-control" 
+                   type="date" 
+                   ng-model="referral.dateclosed">
+          </div>
+
+          <button class="btn btn-lg btn-success btn-block" 
+                  type="submit">{{prompts.btnSubmit}}
+          </button>
+          <button class="btn btn-lg btn-primary btn-block" 
+                  type="button" onclick="window.history.go(-1);">{{prompts.btnCancel}}
+          </button>
+
+        </form>
+    </div>
+</div>

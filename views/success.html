@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default sidebar" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <li class="active">
+        	<a href="#/profile">{{member.name_first}} {{member.name_last}}
+        		<span style="font-size:16px;" 
+        			  class="pull-right hidden-xs showopacity glyphicon glyphicon-user">
+        		</span>
+        	</a>
+        </li>
+
+        <li>
+        	<a href="#/refer">{{prompts.menuRefer}}
+        		<span style="font-size:16px;"
+        			  class="pull-right hidden-xs showopacity glyphicon glyphicon-thumbs-up">
+        		</span>
+        	</a>
+        </li>
+
+        <li>
+        	<a href="#/referrals">{{prompts.menuReferrals}}
+<!-- 
+            <span style="font-size:16px;"
+				          class="pull-right hidden-xs showopacity glyphicon glyphicon-bell">
+			      </span>
+-->
+            <span class="pull-right hidden-xs showopacity badge">{{noteCount}}</span>
+        	</a>
+        </li>
+
+        <li ng-if="member.member_type == 1">
+          <a href="#/reports/active">{{prompts.menuActiveMembers}}
+            <span style="font-size:16px;"
+                  class="pull-right hidden-xs showopacity glyphicon glyphicon-tags">
+            </span>
+          </a>
+        </li>
+
+        <li ng-if="member.member_type == 1">
+          <a href="#/reports/passed">{{prompts.menuReferralsPassed}}
+            <span style="font-size:16px;"
+                  class="pull-right hidden-xs showopacity glyphicon glyphicon-duplicate">
+            </span>
+          </a>
+        </li>
+
+        <li ng-if="member.member_type == 1">
+          <a href="#/reports/closed">{{prompts.menuClosedBusiness}}
+            <span style="font-size:16px;"
+                  class="pull-right hidden-xs showopacity glyphicon glyphicon-usd">
+            </span>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
