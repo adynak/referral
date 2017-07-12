@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <form name="myupdateform" class="form-signin" ng-submit="register()" novalidate>
+      <form name="registerForm" class="form-signin" ng-submit="register()" novalidate>
         <h4 class="alert alert-info">{{ prompts.registerPageTitle }}</h4>              
         <p class="text-danger" ng-show="invalidmessage">{{invalidmessage}}</p>
 
@@ -15,8 +15,8 @@
                  ng-model="member.onlineid" 
                  ng-required="true">
           <p class="text-danger" 
-             ng-show="myupdateform.onlineid.$invalid && 
-                     myupdateform.onlineid.$touched">{{prompts.errOnlineID}}</p>
+             ng-show="registerForm.onlineid.$invalid && 
+                     registerForm.onlineid.$touched">{{prompts.errOnlineID}}</p>
         </div>
 
         <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
@@ -24,17 +24,17 @@
             <input class="form-control"
                    type="password"
                    name="password" 
+                   id="pw1"
                    placeholder="{{prompts.password}}"
                    ng-model="member.password" 
                    ng-required="true" 
                    ng-minlength='5'>
             <p class="text-danger"
-               ng-show="myupdateform.password.$touched &&
-                        myupdateform.password.$invalid &&
-                        !myupdateform.password.$error.required">{{promptsReg.errPasswordLength}}</p>
+                  ng-show="registerForm.password.$touched && 
+                           registerForm.password.$error.required">{{promptsReg.errPasswordRequired}}</p>
             <p class="text-danger"
-                  ng-show="myupdateform.password.$touched && 
-                           myupdateform.password.$error.required">{{promptsReg.errPasswordRequired}}</p>                        
+               ng-show="registerForm.password.$touched &&
+                        registerForm.password.$error.minlength">{{promptsReg.errPasswordLength}}</p>
         </div>
 
         <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
@@ -42,17 +42,23 @@
               <input class="form-control" 
                      type="password" 
                      name="confirmpassword" 
+                     id="pw2"
                      placeholder="{{prompts.password}}"
                      ng-model="member.confirmpassword" 
-                     ng-required="true"  
-                     password-match="member.password">
+                     ng-required="true" 
+                     ng-minlength='5' 
+                     pw-check="pw1" />
               <p class="text-danger"
-                  ng-show="myupdateform.confirmpassword.$touched && 
-                           myupdateform.confirmpassword.$error.required">{{promptsReg.errPasswordRequired}}</p>
+                 ng-show="registerForm.confirmpassword.$touched && 
+                          registerForm.confirmpassword.$error.required">{{promptsReg.errPasswordRequired}}</p>
               <p class="text-danger"
-                  ng-show="myupdateform.confirmpassword.$touched && 
-                           myupdateform.confirmpassword.$error.passwordNotMatch && 
-                           !myupdateform.confirmpassword.$error.required">{{promptsReg.errPasswordDifferent}}</p>
+                 ng-show="registerForm.confirmpassword.$touched &&
+                          !registerForm.confirmpassword.$error.pwmatch && 
+                          registerForm.confirmpassword.$error.minlength">{{promptsReg.errPasswordLength}}</p>                           
+              <p class="text-danger"
+                  ng-show="registerForm.confirmpassword.$touched && 
+                           registerForm.confirmpassword.$error.pwmatch && 
+                           !registerForm.confirmpassword.$error.required">{{promptsReg.errPasswordDifferent}}</p>
         </div>
 
         <div class="clearfix"></div>
@@ -66,8 +72,8 @@
                  ng-model="member.name_first" 
                  ng-required="true">
           <p class="text-danger"
-             ng-show="myupdateform.nameFirst.$invalid && 
-                      myupdateform.nameFirst.$touched">{{promptsReg.errNameFirst}}</p>
+             ng-show="registerForm.nameFirst.$invalid && 
+                      registerForm.nameFirst.$touched">{{promptsReg.errNameFirst}}</p>
         </div>
 
         <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6 required">
@@ -79,8 +85,8 @@
                  ng-model="member.name_last" 
                  ng-required="true">
           <p class="text-danger"
-             ng-show="myupdateform.nameLast.$invalid && 
-                      myupdateform.nameLast.$touched">{{promptsReg.errNameLast}}</p>
+             ng-show="registerForm.nameLast.$invalid && 
+                      registerForm.nameLast.$touched">{{promptsReg.errNameLast}}</p>
         </div>
 
         <div class="clearfix"></div>
@@ -94,8 +100,8 @@
                  ng-model="member.name_business" 
                  ng-required="true">
           <p class="text-danger"
-             ng-show="myupdateform.nameBusiness.$invalid && 
-                      myupdateform.nameBusiness.$touched">{{promptsReg.errNameBusiness}}</p>
+             ng-show="registerForm.nameBusiness.$invalid && 
+                      registerForm.nameBusiness.$touched">{{promptsReg.errNameBusiness}}</p>
         </div>
 
         <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
@@ -107,8 +113,8 @@
                  ng-model="member.occupation" 
                  ng-required="false">
           <p class="text-danger"
-             ng-show="myupdateform.occupation.$invalid && 
-                      myupdateform.occupation.$touched">{{promptsReg.errOccupation}}</p>
+             ng-show="registerForm.occupation.$invalid && 
+                      registerForm.occupation.$touched">{{promptsReg.errOccupation}}</p>
         </div> 
 
         <div class="clearfix"></div>
@@ -122,8 +128,8 @@
                  ng-model="member.phone_main" 
                  ng-required="true">
           <p class="text-danger"
-             ng-show="myupdateform.phone.$invalid && 
-                      myupdateform.phone.$touched">{{promptsReg.errPhonePrimary}}</p>
+             ng-show="registerForm.phone.$invalid && 
+                      registerForm.phone.$touched">{{promptsReg.errPhonePrimary}}</p>
         </div>
 
         <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
@@ -147,8 +153,8 @@
                  ng-model="member.email" 
                  ng-required="true">
           <p class="text-danger"
-             ng-show="myupdateform.email.$invalid && 
-                      myupdateform.email.$touched">{{promptsReg.errEmail}}</p>
+             ng-show="registerForm.email.$invalid && 
+                      registerForm.email.$touched">{{promptsReg.errEmail}}</p>
         </div>
 
         <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
@@ -163,7 +169,7 @@
 
         <button class="btn btn-lg btn-success btn-block" 
                 type="submit" 
-                ng-disabled="myupdateform.$invalid">{{promptsReg.btnRegister}}
+                ng-disabled="registerForm.$invalid">{{promptsReg.btnRegister}}
         </button>
         <button class="btn btn-lg btn-primary btn-block" 
                 type="button" onclick="window.history.go(-1);">{{promptsReg.btnCancel}}

@@ -1,18 +1,13 @@
-myApp.directive('passwordMatch', [function() {
-    return {
-        restrict: 'A',
-        scope: true,
+myApp.directive('pwCheck', [function() {
+  return {
         require: 'ngModel',
-        link: function(scope, elem, attrs, control) {
-            var checker = function() {
-                var e1 = scope.$eval(attrs.ngModel);
-                var e2 = scope.$eval(attrs.passwordMatch);
-                if (e2 != null)
-                    return e1 == e2;
-            };
-            scope.$watch(checker, function(flagtrueorfalse) {
-                control.$setValidity("passwordNotMatch", flagtrueorfalse);
+        link: function (scope, elem, attrs, ctrl) {
+            var firstPassword = '#' + attrs.pwCheck;
+            $(elem).add(firstPassword).on('keyup', function () {
+                scope.$apply(function () {
+                    ctrl.$setValidity('pwmatch', elem.val() === $(firstPassword).val());
+                });
             });
         }
-    };
+    }
 }]);
