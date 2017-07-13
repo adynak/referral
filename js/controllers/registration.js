@@ -1,4 +1,4 @@
-myApp.controller('RegistrationController', ['$scope', '$http', '$location', 'Data', '$rootScope', 'toaster',
+nwc.controller('RegistrationController', ['$scope', '$http', '$location', 'Data', '$rootScope', 'toaster',
     function($scope, $http, $location, Data, $rootScope, toaster) {
 
         $scope.prompts    = txtLogin;

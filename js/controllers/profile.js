@@ -1,4 +1,4 @@
-myApp.controller('ProfileController', ['$scope', '$http', '$location', 'Data', '$rootScope', '$routeParams', 'toaster',
+nwc.controller('ProfileController', ['$scope', '$http', '$location', 'Data', '$rootScope', '$routeParams', 'toaster',
     function($scope, $http, $location, Data, $rootScope, $routeParams, toaster) {
 
         $scope.prompts = txtProfile;

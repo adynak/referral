@@ -1,7 +1,7 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'toaster', 'ngTouch', 
+var nwc = angular.module('nwc', ['ngRoute', 'ngAnimate', 'toaster', 'ngTouch', 
                                      'ui.grid', 'ngMessages', 'daterangepicker']);
 
-myApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+nwc.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     
     $locationProvider.hashPrefix(''); 
 

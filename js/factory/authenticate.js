@@ -1,4 +1,4 @@
-myApp.factory("Data", ['$http', '$q', '$rootScope',
+nwc.factory("Data", ['$http', '$q', '$rootScope',
     function($http, $q, $rootScope) {
 
         var factoryVariables = [
