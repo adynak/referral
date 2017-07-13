@@ -23,15 +23,7 @@ nwc.controller('ReportPassedController', ['$scope', '$http', '$location', 'Data'
                 cancelLabel: datePrompts.cancel,
                 customRangeLabel: datePrompts.customRange
             },
-            ranges: {
-                'Last 7 Days':  "[moment().subtract(6,  'days'), moment()]",
-                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                'Last 60 Days': [moment().subtract(59, 'days'), moment()],
-                'Last 90 Days': [moment().subtract(89, 'days'), moment()],
-                'This Year':    [moment().subtract(364, 'days'), moment()],
-                'This Month':   [moment().startOf('month'), moment().endOf('month')]
-
-            }
+            ranges: datePrompts.ranges
         };
 
         //Watch for date changes

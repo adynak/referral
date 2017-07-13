@@ -155,9 +155,21 @@ var txtReports = {
     gridColumnTemperature: 'Temperature'
 };
 
+// ranges:{
+//     'label': [moment call for dateStart, moment call for dateStop]
+// }
+// refer to moment library for its use
+
 var txtDatePicker = {
-    last7Days:  'Last 7 Days',
-    last30Days: 'Last 30 Days',
+    ranges: {
+        'Last 7 Days':       [moment().subtract(6,  'days'),  moment()],
+        'Last 30 Days':      [moment().subtract(29, 'days'),  moment()],
+        'Last 60 Days':      [moment().subtract(59, 'days'),  moment()],
+        'Last 90 Days':      [moment().subtract(89, 'days'),  moment()],
+        'One Year Trailing': [moment().subtract(364, 'days'), moment()],
+        'Year To Date':      [moment().startOf('year'),       moment()],
+        'Month To Date':     [moment().startOf('month'),      moment()]
+    },
     customRange: 'Custom Range',
     from: 'From',
     to: 'To',
@@ -165,3 +177,4 @@ var txtDatePicker = {
     format: 'MM-DD-YYYY',
     cancel: 'Cancel'
 };
+
