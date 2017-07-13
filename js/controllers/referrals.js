@@ -1,4 +1,4 @@
-myApp.controller('ReferralsController', ['$scope', '$http', '$location', 'Data', '$rootScope', '$routeParams', 'toaster',
+nwc.controller('ReferralsController', ['$scope', '$http', '$location', 'Data', '$rootScope', '$routeParams', 'toaster',
     function($scope, $http, $location, Data, $rootScope, $routeParams, toaster) {
 
         var memberInfo = {};

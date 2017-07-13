@@ -1,4 +1,4 @@
-myApp.controller('ReportPassedController', ['$scope', '$http', '$location', 'Data', 
+nwc.controller('ReportPassedController', ['$scope', '$http', '$location', 'Data', 
                                             '$rootScope', '$routeParams', 'toaster',
     function($scope, $http, $location, Data, $rootScope, $routeParams, toaster) {
 

@@ -1,4 +1,4 @@
-myApp.controller('ReportActiveController', ['$scope', '$http', '$location', 'Data', '$rootScope', '$routeParams', 'toaster',
+nwc.controller('ReportActiveController', ['$scope', '$http', '$location', 'Data', '$rootScope', '$routeParams', 'toaster',
     function($scope, $http, $location, Data, $rootScope, $routeParams, toaster) {
 
         $scope.prompts = txtReports;

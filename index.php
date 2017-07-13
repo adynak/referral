@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="myApp" ng-cloak>
+<html lang="en" ng-app="nwc" ng-cloak>
   <head>
     <meta charset="UTF-8">
     <title></title>

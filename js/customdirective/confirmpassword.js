@@ -1,4 +1,4 @@
-myApp.directive('pwCheck', [function() {
+nwc.directive('pwCheck', [function() {
   return {
         require: 'ngModel',
         link: function (scope, elem, attrs, ctrl) {
