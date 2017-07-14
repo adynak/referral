@@ -5,6 +5,47 @@ nwc.controller('ReferralsController', ['$scope', '$http', '$location', 'Data', '
         memberInfo.id = Data.getCurrentMember().id;
 
         $scope.prompts = txtReferrals;
+        var datePrompts = txtDatePicker;
+
+        var queryResults ;
+
+        $scope.dateFilter = {
+            startDate: moment().subtract(364, "days"),
+            endDate: moment()
+        };
+
+        $scope.dateConfig = {
+            locale: {
+                applyClass: 'btn-green',
+                applyLabel: datePrompts.apply,
+                fromLabel: datePrompts.from,
+                format: datePrompts.format,
+                toLabel: datePrompts.to,
+                cancelLabel: datePrompts.cancel,
+                customRangeLabel: datePrompts.customRange
+            },
+            ranges: datePrompts.ranges
+        };
+
+        //Watch for date changes
+        $scope.$watch('dateFilter', function(newDate) {
+            var params = {};
+            params.dateStart = (newDate.startDate._d.getMonth() + 1) + "/" + newDate.startDate._d.getDate() + "/" +  newDate.startDate._d.getFullYear();
+            params.dateStop  = (newDate.endDate._d.getMonth() + 1) + "/" + newDate.endDate._d.getDate() + "/" +  newDate.endDate._d.getFullYear();
+
+            var referralDate;
+            var startDate = new Date(params.dateStart);
+            var stopDate  = new Date(params.dateStop);
+
+            var requiredData = _.filter(queryResults, function(data){
+                referralDate = new Date(data.DateSent);
+                return (referralDate >= startDate && referralDate <= stopDate);
+            }); 
+
+            $scope.data = requiredData;
+            $scope.resultsCount = requiredData.length;
+
+        }, false);
 
         function rowTemplate() {
             return '<div ng-click="grid.appScope.rowClick(row)" >' +
@@ -18,9 +59,14 @@ nwc.controller('ReferralsController', ['$scope', '$http', '$location', 'Data', '
             Data.setCurrentReferral(row.entity);
         };
 
-        Data.getNotifications(memberInfo).then(function(results) {
+        params = {};
+        params.dateStart = (moment().subtract(364, "days")._d.getMonth() + 1) + "/" + moment().subtract(364, "days")._d.getDate() + "/" +  moment().subtract(364, "days")._d.getFullYear();
+        params.dateStop  = (moment()._d.getMonth() + 1) + "/" + moment()._d.getDate() + "/" +  moment()._d.getFullYear();
+
+        Data.getReferrals(memberInfo,params).then(function(results) {
             $scope.notificationCount = results.length;
             $scope.data = results;
+            queryResults = results ; 
         });
 
         $scope.gridOptions = {

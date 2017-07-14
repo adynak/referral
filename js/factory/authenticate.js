@@ -157,11 +157,13 @@ nwc.factory("Data", ['$http', '$q', '$rootScope',
             return qObject.promise;            
         }
 
-        var getNotifications = function(memberInfo){
+        var getReferrals = function(memberInfo,dates){
             var qObject = $q.defer();
             var params = {
                 id: memberInfo.id,
-                task: 'getNotifications'
+                task: 'getReferrals',
+                dateStart: dates.dateStart,
+                dateStop: dates.dateStop
             };
             $http({
                 method: 'POST',
@@ -307,7 +309,7 @@ nwc.factory("Data", ['$http', '$q', '$rootScope',
             registerMember: registerMember,
             updateMemberInfo: updateMemberInfo,
             insertNewReferral: insertNewReferral,
-            getNotifications: getNotifications,
+            getReferrals: getReferrals,
             logout: logout,
             getSession: getSession,
             setNoteCount: setNoteCount,

@@ -51,7 +51,8 @@ var txtRefer = {
     btnSendReferral: 'Submit Referral',
     btnCancel: 'Cancel',
     inside: 'Inside',
-    outside: 'Outside'
+    outside: 'Outside',
+    newReferral: 'Your referral nas been sent.'
 };
 
 var txtReferrals = {
@@ -83,7 +84,8 @@ var txtReferralDetails = {
     markRead: 'Mark Referral as Read',
     closeThisReferral: 'Close This Referral On',
     btnCancel: 'Cancel',
-    btnSubmit: 'Done'
+    btnSubmit: 'Done',
+    updateReferral: 'Saved updates to referral.'
 };
 
 var txtSideMenu = {
