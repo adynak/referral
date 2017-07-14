@@ -8,6 +8,20 @@
               }">
       </ng-pluralize>
     </h4>
+
+    <div class="row">
+      <div class="col-md-6">
+        <label for="daterange" class="control-label">Filter Referrals by Date Range</label>
+          <input date-range-picker 
+                 id="daterange" 
+                 name="daterange" 
+                 class="form-control date-picker" 
+                 type="text"
+                 ng-model="dateFilter" 
+                 options="dateConfig" required/>
+      </div>
+    </div>
+        
     <br>
 
     <div>

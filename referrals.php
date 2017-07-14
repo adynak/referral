@@ -99,7 +99,8 @@ else if ($data->task == 'getMemberInfo') {
     }    
 }
 
-else if ($data->task == 'getNotifications') {
+else if ($data->task == 'getReferrals') {
+    $debug = false ;
     $myArray = array();
     if(true)
     {
@@ -129,6 +130,7 @@ else if ($data->task == 'getNotifications') {
       $sql .= "nwc.temperature AS t ON r.temperature = t.id ";
       $sql .= "WHERE ";
       $sql .= "r.recipient = $data->id " ;
+      $sql .= "AND r.datesent between '$data->dateStart' and '$data->dateStop' ";      
       $sql .= "ORDER BY ";
       $sql .= "r.datesent";
 

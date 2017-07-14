@@ -28,7 +28,7 @@ nwc.controller('ReferralController', ['$scope', '$http', '$location', 'Data', '$
             Data.insertNewReferral($scope.referral).then(function(results) {
                 $scope.recipients = results;
                 $location.path('/success');
-                toaster.pop('success', "", txt.newReferral, 3000, 'trustedHtml');
+                toaster.pop('success', "", txtRefer.newReferral, 3000, 'trustedHtml');
             });
         };
 

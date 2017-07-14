@@ -17,7 +17,7 @@ nwc.controller('ReferralDetailsController', ['$scope', '$http', '$location', 'Da
 
             Data.updateReferral($scope.referral).then(function(results) {
             window.history.back();
-                toaster.pop('success', "", txt.updateReferral, 3000, 'trustedHtml');
+                toaster.pop('success', "", txtReferralDetails.updateReferral, 3000, 'trustedHtml');
             });
 
         };
