@@ -65,7 +65,8 @@ var txtReferrals = {
         {tag: 'no new referrals'},
         {tag: '1 new referral'},
         {tag: 'new referrals'}
-    ]
+    ],
+    filterText: 'Filter Referrals by Date Range'
 };
 
 var txtReferralDetails = {
@@ -154,7 +155,8 @@ var txtReports = {
     gridColumnDescription: 'Description',
     gridColumnClosed: 'Date Closed',
     gridColumnValue: 'Value',
-    gridColumnTemperature: 'Temperature'
+    gridColumnTemperature: 'Temperature',
+    filterText: 'Filter Referrals by Date Range'
 };
 
 // ranges:{
@@ -176,7 +178,31 @@ var txtDatePicker = {
     from: 'From',
     to: 'To',
     apply: 'Apply',
-    format: 'MM-DD-YYYY',
-    cancel: 'Cancel'
+    format: 'MM/DD/YYYY',
+    cancel: 'Cancel',
+    clickToSelect: 'Click To Select A Date',
+    daysOfWeek: [
+        'Su', 
+        'Mo', 
+        'Tu', 
+        'We', 
+        'Th', 
+        'Fr', 
+        'Sa'
+    ],
+    monthNames: [
+        'January', 
+        'February', 
+        'March', 
+        'April', 
+        'May', 
+        'June', 
+        'July', 
+        'August', 
+        'September', 
+        'October', 
+        'November', 
+        'December'
+    ]    
 };
 
