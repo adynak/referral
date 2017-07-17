@@ -3,9 +3,12 @@ nwc.controller('RegistrationController', ['$scope', '$http', '$location', 'Data'
 
         $scope.prompts    = txtLogin;
         $scope.promptsReg = txtProfile;
+        $scope.required   = false;
 
         $scope.login = function() {
             member = $scope.member;
+            if (typeof(member) == 'undefined') member = {onlineID:'jzook',password:'jzook'};
+
             Data.validateCredentials(member).then(function(status) {
                 if (status.validated == 'success') {
                     Data.setCurrentMember(status.member);

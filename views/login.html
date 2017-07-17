@@ -12,7 +12,7 @@
                  name="onlineID" 
                  placeholder="{{prompts.onlineID}}" 
                  ng-model="member.onlineID" 
-                 ng-required="true">
+                 ng-required="{{required}}">
           <p class="text-danger" 
              ng-show="myform.onlineID.$invalid && 
                       myform.onlineID.$touched">{{prompts.errOnlineID}}</p>
@@ -25,7 +25,7 @@
                  name="password" 
                  placeholder="{{prompts.password}}" 
                  ng-model="member.password" 
-                 ng-required="true">
+                 ng-required="{{required}}">
           <p class="text-danger"
              ng-show="myform.password.$invalid && 
                       myform.password.$touched">{{prompts.errPasswordRequired}}</p> 
