@@ -3,7 +3,7 @@ nwc.controller('RegistrationController', ['$scope', '$http', '$location', 'Data'
 
         $scope.prompts    = txtLogin;
         $scope.promptsReg = txtProfile;
-        $scope.required   = false;
+        $scope.required   = true;
 
         $scope.login = function() {
             member = $scope.member;
