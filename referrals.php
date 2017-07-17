@@ -297,6 +297,7 @@ else if ($data->task == 'updateuser') {
 
 else if ($data->task == 'updateReferral') {
 // don't do an update without values 
+  $debug = false;
   $processUpdate = false;
 
   $sql  = "update nwc.referrals ";
@@ -304,7 +305,7 @@ else if ($data->task == 'updateReferral') {
 
   if (!is_null($data->referral->dateclosed)){
       $processUpdate = true;
-      $sql .= "dateclosed='" . $data->referral->dateclosed . "' " ;
+      $sql .= "dateclosed='" . $data->referral->closereferraldate . "' " ;
   }
 
   if (!is_null($data->referral->dollarestimate)){

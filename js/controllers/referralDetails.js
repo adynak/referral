@@ -5,6 +5,44 @@ nwc.controller('ReferralDetailsController', ['$scope', '$http', '$location', 'Da
         $scope.referral = Data.getCurrentReferral();
         $scope.member = Data.getCurrentMember();
 
+        var datePrompts = txtDatePicker;
+
+        var dateRangePickerCallBack = function(start, end, label) {
+            $('#closeThisReferral span').html(start.format(datePrompts.format));
+
+            var now = moment().format('YYYY-MM-DDTHH:mm:ss');
+            var nowTime = now.split("T")[1];
+
+            var closeIt = start.format('YYYY-MM-DDTHH:mm:ss');
+            var closeDate = closeIt.split("T")[0];
+            closeIt = closeDate + 'T' + nowTime;
+            $scope.referral.closereferraldate = closeIt;
+        };
+
+        var dateConfig = {
+            startDate: moment(),
+            minDate:   moment().subtract(364, 'days'),
+            maxDate:   moment().endOf('year'),
+            singleDatePicker: true,
+            todayHighlight: true,
+            showDropdowns: true,
+            orientation: 'top',
+            opens: 'left',
+            format: datePrompts.format,
+            locale: {
+                daysOfWeek: datePrompts.daysOfWeek,
+                monthNames: datePrompts.monthNames
+            }
+        };
+
+        if ($scope.referral.closereferraldate == null){
+            $('#closeThisReferral span').html(datePrompts.clickToSelect);
+        } else {
+            $('#closeThisReferral span').html(moment($scope.referral.closereferraldate).format(datePrompts.format));
+        }
+
+        $('#closeThisReferral').daterangepicker(dateConfig, dateRangePickerCallBack);
+
         if ($scope.referral.closereferraldate===null){
 
         } else {
